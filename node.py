@@ -1,12 +1,14 @@
-class node:
-    def __init__(self, board: str) -> None:
+class Node:
+    def __init__(self, board: list[list[chr]], children: list['Node'], heurstic_val: int) -> None:
         self.__board = board
+        self.__children = children
+        self.__heurstic_val = heurstic_val
     
-    def get_board(self) -> str:
+    def get_board(self) -> list[list[chr]]:
         return self.__board
     
-    def __hash__(self) -> int:
-        return hash(self.__board)
-    
-    def __eq__(self, other) -> bool:
-        return self.__board == other.__board
+    def get_children(self) -> list:
+        return self.__children
+
+    def get_heurstic_val(self) -> int:
+        return self.__heurstic_val
