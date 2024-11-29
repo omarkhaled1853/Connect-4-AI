@@ -1,14 +1,20 @@
 class Node:
-    def __init__(self, board: list[list[chr]], children: list['Node'], heurstic_val: int) -> None:
+    def __init__(self, board: list[list[chr]]) -> None:
         self.__board = board
-        self.__children = children
-        self.__heurstic_val = heurstic_val
+        self.__children = []
+        self.__heurstic_value = 0
     
     def get_board(self) -> list[list[chr]]:
         return self.__board
     
     def get_children(self) -> list:
         return self.__children
+    
+    def add_child(self, node: 'Node'):
+        self.__children.append(node)
+    
+    def get_heurstic_value(self) -> int:
+        return self.__heurstic_value
 
-    def get_heurstic_val(self) -> int:
-        return self.__heurstic_val
+    def set_heuristic_value(self, heurstic_value: int):
+        self.__heurstic_value = heurstic_value

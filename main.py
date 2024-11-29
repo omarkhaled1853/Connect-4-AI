@@ -1,4 +1,5 @@
 from Algorithms.minimax import Minimax
+import sys
 
 if __name__ == '__main__':
     AGENT = 1

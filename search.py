@@ -2,8 +2,10 @@ from abc import ABC, abstractmethod
 
 # Abstract class for all different search algorithms
 class Search(ABC):
-    def __init__(self, turn: int) -> None:
-        self._turn = turn
+    def __init__(self, piece: int, rows: int = 6, cols: int = 7) -> None:
+        self._piece= piece
+        self._rows = rows
+        self._cols = cols
         self._board = []
         self._human_score = 0
         self._agent_score = 0
