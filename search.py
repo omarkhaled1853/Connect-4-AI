@@ -2,8 +2,9 @@ from abc import ABC, abstractmethod
 
 # Abstract class for all different search algorithms
 class Search(ABC):
-    def __init__(self, piece: int, rows: int = 6, cols: int = 7) -> None:
+    def __init__(self, piece: int, depth: int, rows: int = 6, cols: int = 7) -> None:
         self._piece= piece
+        self._depth = depth
         self._rows = rows
         self._cols = cols
         self._board = []

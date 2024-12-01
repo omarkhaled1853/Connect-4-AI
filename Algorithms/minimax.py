@@ -81,5 +81,5 @@ class Minimax(Search):
 
     def solve(self) -> dict:
         node = Node(self._board)
-        best_position, _ = self.minimax(node)
+        best_position, _ = self.minimax(node, self._depth)
         pass
