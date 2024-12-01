@@ -79,8 +79,9 @@ class Minimax(Search):
 
 
     def minimax(self, node: Node, depth: int, human_score: int, agent_score: int, maximizing_player: bool = True) -> tuple:
-        """ Get best position to play with its value
-            based on it is maximization node or minimization node
+        """ 
+        Get best position to play with its value
+        based on it is maximization node or minimization node
         """
         # get board
         board = node.get_board()
@@ -101,7 +102,7 @@ class Minimax(Search):
                     node.set_heuristic_value(0)
                     return (None, 0)
             else:
-                heurstic_value = heuristic_score(board, self._rows, self._cols, self._agent_piece, self._human_piece)
+                heurstic_value = heuristic_score(board, self._rows, self._cols, self._agent_piece, self._human_piece, self._agent_score, self._human_score)
                 node.set_heuristic_value(heurstic_value)
                 return (None, heurstic_value)
         

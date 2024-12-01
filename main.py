@@ -17,5 +17,7 @@ if __name__ == '__main__':
     agent_score = 0
 
     search = Minimax(AGENT_PIECE, HUMAN_PIECE)
+    search.set_agent_score(0)
+    search.set_human_score(0)
     res = search.solve(board, human_score, agent_score)
     print(res['best_position'])
