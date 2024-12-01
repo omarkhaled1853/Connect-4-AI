@@ -1,9 +1,8 @@
 from Algorithms.minimax import Minimax
-import sys
 
 if __name__ == '__main__':
-    AGENT = 1
-    HUMAN = 2
+    AGENT_PIECE = '1'
+    HUMAN_PIECE = '2'
     
     board = [
         ['0', '0', '0', '0', '0', '0', '0'],
@@ -17,9 +16,5 @@ if __name__ == '__main__':
     human_score = 0
     agent_score = 0
 
-    search = Minimax(AGENT)
-    search.set_board(board)
-    search.set_human_score(human_score)
-    search.set_agent_score(agent_score)
-
-    print(f'{search.get_board()}\n{search.get_human_score()}\n{search.get_agent_score()}')
+    search = Minimax(AGENT_PIECE, HUMAN_PIECE, 5)
+    search.solve(board, human_score, agent_score)

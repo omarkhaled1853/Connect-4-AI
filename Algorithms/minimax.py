@@ -4,8 +4,8 @@ import math
 import random
 
 class Minimax(Search):
-    def __init__(self, piece: int, rows: int = 6, cols: int = 7) -> None:
-        super().__init__(piece, rows, cols)
+    def __init__(self, agent_piece: chr, human_piece: chr, depth: int = 42, rows: int = 6, cols: int = 7) -> None:
+        super().__init__(agent_piece, human_piece, depth, rows, cols)
     
     def __is_terminal_node(self, board: list[list[chr]]) -> bool:
         """ Terminal node if board is full """
@@ -27,9 +27,56 @@ class Minimax(Search):
     
     def __update_board(self, board: list[list[chr]], position: tuple):
         """ Update board with agent piece """
-        board[position] = self._piece
+        board[position] = self._agent_piece
+    
+    def __count_winning_moves(self, board, piece):
+        """
+        Counts all occurrences of connected 4s for the given piece
+        """
+        count = 0
+        # Horizontal check
+        for r in range(self._rows):
+            row_array = [int(i) for i in list(board[r, :])]
+            for c in range(self._cols - 3):
+                window = row_array[c:c + 4]
+                if window.count(piece) == 4:
+                    count += 1
 
-    def minimax(self, node: Node, depth: int = 42, maximizing_player: bool = True) -> tuple:
+        # Vertical check
+        for c in range(self._cols):
+            col_array = [int(i) for i in list(board[:, c])]
+            for r in range(self._rows - 3):
+                window = col_array[r:r + 4]
+                if window.count(piece) == 4:
+                    count += 1
+
+        # Diagonal check
+        for r in range(self._rows - 3):
+            for c in range(self._cols - 3):
+                window = [board[r + i][c + i] for i in range(4)]
+                if window.count(piece) == 4:
+                    count += 1
+
+        # Reversed diagonal check
+        for r in range(self._rows - 3):
+            for c in range(self._cols - 3):
+                window = [board[r + 3 - i][c + i] for i in range(4)]
+                if window.count(piece) == 4:
+                    count += 1
+
+        return count
+
+    def __winning_move(self, board: list[list[chr]]):
+        """
+        Counts connected 4s occurrences for both the agent and the human.
+        """
+        agent_wins = self.__count_winning_moves(board, self._agent_piece)
+        human_wins = self.__count_winning_moves(board, self._human_piece)
+
+        return agent_wins, human_wins
+
+
+    def minimax(self, node: Node, depth: int, human_score: int, agent_score: int, maximizing_player: bool = True) -> tuple:
         """ Get best position to play with its value
             based on it is maximization node or minimization node
         """
@@ -40,10 +87,21 @@ class Minimax(Search):
         # check terminal node
         is_terminal = self.__is_terminal_node(board)
         if depth == 0 or is_terminal:
-            node.set_heuristic_value(math.inf)
-            # return heurstic value
-            # dummy
-            return (None, math.inf)
+            if is_terminal:
+                agent_wins, human_wins = self.__winning_move(board)
+                if agent_wins > human_wins:
+                    node.set_heuristic_value(math.inf)
+                    return (None, math.inf)
+                elif agent_wins < human_wins:
+                    node.set_heuristic_value(-math.inf)
+                    return (None, -math.inf)
+                else:
+                    node.set_heuristic_value(0)
+                    return (None, 0)
+            else:
+                # evaluate heurstic
+                # dummy
+                return (None, math.inf)
         
         if maximizing_player:
             value = -math.inf
@@ -53,7 +111,7 @@ class Minimax(Search):
                 self.__update_board(board_copy, position)
                 
                 new_node = Node(board_copy)
-                temp_value = self.minimax(new_node, depth - 1, False)
+                temp_value = self.minimax(new_node, depth - 1, human_score, agent_score, False)
                 if (temp_value > value):
                     value = temp_value
                     best_position = position
@@ -69,7 +127,7 @@ class Minimax(Search):
                 self.__update_board(board_copy, position)
                 
                 new_node = Node(board_copy)
-                temp_value = self.minimax(new_node, depth - 1, True)
+                temp_value = self.minimax(new_node, depth - 1, human_score, agent_score,True)
                 if (temp_value < value):
                     value = temp_value
                     best_position = position
@@ -79,7 +137,7 @@ class Minimax(Search):
             return (best_position, value)
 
 
-    def solve(self) -> dict:
-        node = Node(self._board)
-        best_position, _ = self.minimax(node, self._depth)
+    def solve(self, board: list[list[chr]], human_score: int, agent_score: int) -> dict:
+        node = Node(board)
+        best_position, _ = self.minimax(node, self._depth, human_score, agent_score)
         pass

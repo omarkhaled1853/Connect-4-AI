@@ -1,8 +1,8 @@
 from search import Search
 
 class Expected_minimax(Search):
-    def __init__(self, piece: int, rows: int = 6, cols: int = 7) -> None:
-        super().__init__(piece, rows, cols)
+    def __init__(self, agent_piece: chr, human_piece: chr, depth: int = 42, rows: int = 6, cols: int = 7) -> None:
+        super().__init__(agent_piece, human_piece, depth, rows, cols)
     
-    def solve(self) -> dict:
-        return super().solve()
+    def solve(self, board: list[list], human_score: int, agent_score: int) -> dict:
+        return super().solve(board, human_score, agent_score)
