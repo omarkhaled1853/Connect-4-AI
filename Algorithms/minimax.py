@@ -1,7 +1,8 @@
-from search import Search
-from node import Node
 import math
 import random
+from Algorithms.search import Search
+from utils.node import Node
+from utils.heuristic import heuristic_score
 
 class Minimax(Search):
     def __init__(self, agent_piece: chr, human_piece: chr, depth: int = 42, rows: int = 6, cols: int = 7) -> None:
@@ -19,7 +20,7 @@ class Minimax(Search):
         """ Get valid (empty) positions to play """
         valid_positions = []
         for col in range(self._cols):
-            for row in range(self._rows - 1, -1):
+            for row in range(self._rows - 1, -1, -1):
                 if board[row][col] == '0':
                     valid_positions.append((row, col))
                     break
@@ -27,7 +28,8 @@ class Minimax(Search):
     
     def __update_board(self, board: list[list[chr]], position: tuple):
         """ Update board with agent piece """
-        board[position] = self._agent_piece
+        row, col = position
+        board[row][col] = self._agent_piece
     
     def __count_winning_moves(self, board, piece):
         """
@@ -36,7 +38,7 @@ class Minimax(Search):
         count = 0
         # Horizontal check
         for r in range(self._rows):
-            row_array = [int(i) for i in list(board[r, :])]
+            row_array = board[r]
             for c in range(self._cols - 3):
                 window = row_array[c:c + 4]
                 if window.count(piece) == 4:
@@ -44,7 +46,7 @@ class Minimax(Search):
 
         # Vertical check
         for c in range(self._cols):
-            col_array = [int(i) for i in list(board[:, c])]
+            col_array = [row[c] for row in board] 
             for r in range(self._rows - 3):
                 window = col_array[r:r + 4]
                 if window.count(piece) == 4:
@@ -83,7 +85,7 @@ class Minimax(Search):
         # get board
         board = node.get_board()
         # get valid positions
-        valid_positions = self.__get_valid_positions()
+        valid_positions = self.__get_valid_positions(board)
         # check terminal node
         is_terminal = self.__is_terminal_node(board)
         if depth == 0 or is_terminal:
@@ -99,9 +101,9 @@ class Minimax(Search):
                     node.set_heuristic_value(0)
                     return (None, 0)
             else:
-                # evaluate heurstic
-                # dummy
-                return (None, math.inf)
+                heurstic_value = heuristic_score(board, self._rows, self._cols, self._agent_piece, self._human_piece)
+                node.set_heuristic_value(heurstic_value)
+                return (None, heurstic_value)
         
         if maximizing_player:
             value = -math.inf
@@ -111,7 +113,7 @@ class Minimax(Search):
                 self.__update_board(board_copy, position)
                 
                 new_node = Node(board_copy)
-                temp_value = self.minimax(new_node, depth - 1, human_score, agent_score, False)
+                temp_value = self.minimax(new_node, depth - 1, human_score, agent_score, False)[1]
                 if (temp_value > value):
                     value = temp_value
                     best_position = position
@@ -127,7 +129,7 @@ class Minimax(Search):
                 self.__update_board(board_copy, position)
                 
                 new_node = Node(board_copy)
-                temp_value = self.minimax(new_node, depth - 1, human_score, agent_score,True)
+                temp_value = self.minimax(new_node, depth - 1, human_score, agent_score,True)[1]
                 if (temp_value < value):
                     value = temp_value
                     best_position = position
@@ -140,4 +142,6 @@ class Minimax(Search):
     def solve(self, board: list[list[chr]], human_score: int, agent_score: int) -> dict:
         node = Node(board)
         best_position, _ = self.minimax(node, self._depth, human_score, agent_score)
-        pass
+        return {
+            'best_position': best_position
+        }

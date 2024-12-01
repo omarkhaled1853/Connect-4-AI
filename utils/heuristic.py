@@ -21,13 +21,13 @@ def heuristic_score(board: list[list[chr]], rows: int, cols: int, agent_piece: c
     human_total_score = 0
 
     # Score center column
-    center_array = [int(i) for i in list(board[:, cols//2])]
+    center_array = [row[cols // 2] for row in board]
     center_count = center_array.count(agent_piece)
     agent_total_score += center_count * 3
 
     # Horizontal scoring
     for r in range(rows):
-        row_array = [int(i) for i in list(board[r, :])]
+        row_array = board[r]
         for c in range(cols - 3):
             window = row_array[c:c + 4]
             agent_score = evaluate_window(window, agent_piece)
@@ -37,7 +37,7 @@ def heuristic_score(board: list[list[chr]], rows: int, cols: int, agent_piece: c
 
     # Vertical scoring
     for c in range(cols):
-        col_array = [int(i) for i in list(board[:, c])]
+        col_array = [row[c] for row in board] 
         for r in range(rows - 3):
             window = col_array[r:r + 4]
             agent_score = evaluate_window(window, agent_piece)

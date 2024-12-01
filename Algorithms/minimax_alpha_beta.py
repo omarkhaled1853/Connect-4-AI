@@ -1,4 +1,4 @@
-from search import Search
+from Algorithms.search import Search
 
 class Minimax_alpha_beta(Search):
     def __init__(self, agent_piece: chr, human_piece: chr, depth: int = 42, rows: int = 6, cols: int = 7) -> None:
