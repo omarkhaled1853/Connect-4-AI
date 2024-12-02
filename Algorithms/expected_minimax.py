@@ -217,7 +217,9 @@ class Expected_minimax(Search):
 
     def solve(self, board: list[list[chr]], human_score: int, agent_score: int) -> dict:
         node = Node(board)
-        best_position, _ = self.minimax(node, self._depth, human_score, agent_score)
+        col, _ = self.minimax(node, self._depth, human_score, agent_score)
+        row = self.get_next_open_row(board, col)
+        best_position = (row, col)
         return {
             'best_position': best_position,
             'node': node
