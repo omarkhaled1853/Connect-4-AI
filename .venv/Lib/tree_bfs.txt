@@ -1,0 +1,51 @@
+Node: 0, Childs: 1, 2, 3, 4, 5, 6, 7
+Node: 1, Childs: 8, 9, 10, 11
+Node: 2, Childs: 10, 11, 12, 13
+Node: 3, Childs: 12, 13, 14
+Node: 4, Childs: 14, 15, 15, 17
+Node: 5, Childs: 16, 17, 18, 19, 16
+Node: 6, Childs: 20, 20, 20, 20, 20, 20, 20
+Node: 7, Childs: 20, 20, 20, 20, 20
+Node: 8, Childs: 20, 20, 20, 20
+Node: 9, Childs: 
+Node: 10, Childs: 
+Node: 11, Childs: 
+Node: 10, Childs: 
+Node: 11, Childs: 
+Node: 12, Childs: 
+Node: 13, Childs: 
+Node: 12, Childs: 
+Node: 13, Childs: 
+Node: 14, Childs: 
+Node: 14, Childs: 
+Node: 15, Childs: 18, 19
+Node: 15, Childs: 18, 19
+Node: 17, Childs: 
+Node: 16, Childs: 
+Node: 17, Childs: 
+Node: 18, Childs: 20
+Node: 19, Childs: 
+Node: 16, Childs: 
+Node: 20, Childs: 
+Node: 20, Childs: 
+Node: 20, Childs: 
+Node: 20, Childs: 
+Node: 20, Childs: 
+Node: 20, Childs: 
+Node: 20, Childs: 
+Node: 20, Childs: 
+Node: 20, Childs: 
+Node: 20, Childs: 
+Node: 20, Childs: 
+Node: 20, Childs: 
+Node: 20, Childs: 
+Node: 20, Childs: 
+Node: 20, Childs: 
+Node: 20, Childs: 
+Node: 18, Childs: 20
+Node: 19, Childs: 
+Node: 18, Childs: 20
+Node: 19, Childs: 
+Node: 20, Childs: 
+Node: 20, Childs: 
+Node: 20, Childs: 
