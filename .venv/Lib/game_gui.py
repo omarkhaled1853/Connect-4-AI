@@ -139,6 +139,10 @@ LEVEL = 3
 START_FIRST = 'player'
 SEARCH_METHOD = 'Alpha_Beta'
 FULL_BOARD = 42
+PLAYER_PIECE = '1'
+COMPUTER_PIECE = '2'
+
+
 
 
 def generate_number():
@@ -168,7 +172,7 @@ def draw_board(board):
                 pygame.draw.circle(screen, BLACK, (int(c*SQUARESIZE+SQUARESIZE/2),int(r*SQUARESIZE+SQUARESIZE+SQUARESIZE/2)), RADIUS)
             elif board[r][c] == '1':
                 pygame.draw.circle(screen, RED, (int(c*SQUARESIZE+SQUARESIZE/2),int(r*SQUARESIZE+SQUARESIZE+SQUARESIZE/2)), RADIUS)
-            else:   # player 2
+            else:
                 pygame.draw.circle(screen, YELLOW, (int(c*SQUARESIZE+SQUARESIZE/2),int(r*SQUARESIZE+SQUARESIZE+SQUARESIZE/2)), RADIUS)
 
     pygame.display.update()
@@ -196,6 +200,7 @@ def start_game():
 	draw_board(board)
 	pygame.display.update()
 
+
 	turn = 0 # player turn
 	if START_FIRST == 'computer':
 		turn = 1
@@ -210,13 +215,13 @@ def start_game():
 			if not is_valid_location(board, computer_col):
 				continue
 			row = get_next_open_row(board, computer_col)
-			drop_piece(board, row, computer_col, '2')
-			computer_score += gain_from_one_piece(board, row, computer_col, '2')
+			drop_piece(board, row, computer_col, COMPUTER_PIECE)
+			computer_score += gain_from_one_piece(board, row, computer_col, COMPUTER_PIECE)
 			draw_board(board)
 			turn = (turn + 1) % 2
 			step_num += 1
-			print(f"player: {player_score}")
-			print(f"computer: {computer_score}")
+			print(f"player: {PLAYER_PIECE}")
+			print(f"computer: {COMPUTER_PIECE}")
 
 		for event in pygame.event.get():
 			if event.type == pygame.QUIT:
@@ -227,7 +232,10 @@ def start_game():
 
 				posx = event.pos[0]
 				if turn == 0:
-					pygame.draw.circle(screen, RED, (posx, int(SQUARESIZE / 2)), RADIUS)
+					if PLAYER_PIECE == '1':
+						pygame.draw.circle(screen, RED, (posx, int(SQUARESIZE / 2)), RADIUS)
+					else:
+						pygame.draw.circle(screen, YELLOW, (posx, int(SQUARESIZE / 2)), RADIUS)
 
 				pygame.display.update()
 
@@ -242,8 +250,8 @@ def start_game():
 
 				if turn == 0 and is_valid_location(board, col):
 					row = get_next_open_row(board, col)
-					drop_piece(board, row, col, '1')
-					player_score += gain_from_one_piece(board, row, col, '1')
+					drop_piece(board, row, col, PLAYER_PIECE)
+					player_score += gain_from_one_piece(board, row, col, PLAYER_PIECE)
 					draw_board(board)
 					turn = (turn + 1) % 2
 					step_num += 1
@@ -277,11 +285,12 @@ def main_menu():
 	pygame.init()
 
 	start_first = [("Player", "player"), ("Computer", "computer")]
+	player_color = [("Red", "1"), ("Yellow", "2")]
 	level = [(str(i), str(i)) for i in range(1, 43)]
 	search_method = [("Alpha_Beta", "Alpha_Beta"), ("Minmax", "Minmax"), ("Expected minmax", "Expeced minmax")]
 
 	# Creating the settings menu
-	settings = pm.Menu(title="Game setting",
+	settings = pm.Menu(title="CONNECT4 GAME",
 					   width=WIDTH,
 					   height=HEIGHT,
 					   theme=pm.themes.THEME_DARK)
@@ -293,19 +302,33 @@ def main_menu():
 	def setSetting():
 		# Updating defaul variables based on user selection
 		data = settings.get_input_data()
-		global START_FIRST, LEVEL, SEARCH_METHOD
+		global START_FIRST, PLAYER_PIECE, COMPUTER_PIECE, LEVEL, SEARCH_METHOD
 		START_FIRST = data.get("start_first")[0][1]
+		PLAYER_PIECE = data.get("player_color")[0][1]
 		LEVEL = int(data.get("level")[0][1])
 		SEARCH_METHOD = data.get("search_method")[0][1]
 
+		if PLAYER_PIECE == '1':
+			COMPUTER_PIECE = '2'
+		else:
+			COMPUTER_PIECE = '1'
+
 		print(START_FIRST)
+		print(PLAYER_PIECE)
+		print(COMPUTER_PIECE)
 		print(LEVEL)
 		print(SEARCH_METHOD)
+		start_game()
+
 
 	settings.add.text_input(title="User Name : ", textinput_id="username")
 
 	settings.add.dropselect(title="Start first", items=start_first,
 							dropselect_id="start_first", default=0
+							)
+
+	settings.add.dropselect(title="Player color", items=player_color,
+							dropselect_id="player_color", default=0
 							)
 
 	settings.add.dropselect(title="Search method", items=search_method,
@@ -315,10 +338,7 @@ def main_menu():
 	settings.add.dropselect(title="Minmax level", items=level,
 									 dropselect_id="level", default=0)
 
-	settings.add.button(title="Set Settings", action=setSetting,
-						font_color=WHITE, background_color=ORANGE)
-
-	settings.add.button(title="Start game", action=start_game,
+	settings.add.button(title="Start game", action=setSetting,
 						font_color=WHITE, background_color=BLACK)
 
 
