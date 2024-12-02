@@ -8,6 +8,14 @@ class Node:
         self.__alpha = -math.inf
         self.__beta = math.inf
     
+    @classmethod
+    def chance_node(cls):
+        """
+        Alternative constructor to create a Node with only a heuristic value.
+        """
+        node = cls(board=[])  # Initialize with an empty board
+        return node
+
     def get_board(self) -> list[list[chr]]:
         return self.__board
     
@@ -20,7 +28,7 @@ class Node:
     def get_heurstic_value(self) -> int:
         return self.__heurstic_value
 
-    def set_heuristic_value(self, heurstic_value: int):
+    def set_heuristic_value(self, heurstic_value: float):
         self.__heurstic_value = heurstic_value
     
     def get_alpha(self) -> int:
