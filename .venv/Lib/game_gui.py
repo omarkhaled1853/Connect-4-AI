@@ -3,114 +3,12 @@ import sys
 import pygame_menu as pm
 import numpy as np
 import random
+from queue import Queue
 from tree_gui import *
 from turn_gain import *
 from tree_printing import *
 from utils.factory import Factory
 from Algorithms.search import Search
-
-# root = Node(0)
-# child1 = Node(1)
-# child2 = Node(2)
-# child3 = Node(3)
-# child4 = Node(4)
-# child5 = Node(5)
-# child6 = Node(6)
-# child7 = Node(7)
-# child8 = Node(8)
-# child9 = Node(9)
-#
-# child10 = Node(10)
-# child11 = Node(11)
-# child12 = Node(12)
-# child13 = Node(13)
-# child14 = Node(14)
-# child15 = Node(15)
-# child16 = Node(16)
-# child17 = Node(17)
-# child18 = Node(18)
-# child19 = Node(19)
-# child20 = Node(20)
-# child21 = Node(20)
-# child22 = Node(20)
-# child23 = Node(20)
-# child24 = Node(20)
-# child25 = Node(20)
-# child26 = Node(20)
-# child27 = Node(20)
-# child28 = Node(20)
-# child29 = Node(20)
-# child30 = Node(20)
-# child31 = Node(20)
-# child32 = Node(20)
-# child33 = Node(20)
-# child34 = Node(20)
-# child35 = Node(20)
-#
-# root.add_child(child1)
-# root.add_child(child2)
-# root.add_child(child3)
-# root.add_child(child4)
-# root.add_child(child5)
-# root.add_child(child6)
-# root.add_child(child7)
-#
-#
-# child1.add_child(child8)
-# child1.add_child(child9)
-#
-# child2.add_child(child10)
-# child2.add_child(child11)
-#
-#
-# child3.add_child(child12)
-# child3.add_child(child13)
-#
-# child4.add_child(child14)
-# child4.add_child(child15)
-#
-#
-# child5.add_child(child16)
-# child5.add_child(child17)
-# child5.add_child(child18)
-# child5.add_child(child19)
-#
-# child6.add_child(child20)
-# child6.add_child(child21)
-# child6.add_child(child22)
-# child6.add_child(child23)
-# child6.add_child(child24)
-# child6.add_child(child25)
-# child6.add_child(child26)
-#
-# child7.add_child(child27)
-# child7.add_child(child28)
-# child7.add_child(child29)
-# child7.add_child(child30)
-# child7.add_child(child31)
-#
-# child8.add_child(child32)
-# child8.add_child(child33)
-# child8.add_child(child34)
-# child8.add_child(child35)
-#
-# child1.add_child(child10)
-# child1.add_child(child11)
-#
-# child2.add_child(child12)
-# child2.add_child(child13)
-#
-# child3.add_child(child14)
-# child4.add_child(child15)
-# child4.add_child(child17)
-#
-# child5.add_child(child16)
-#
-# child15.add_child(child18)
-# child15.add_child(child19)
-#
-# child18.add_child(child20)
-
 
 #Board size
 ROW_COUNT = 6
@@ -181,11 +79,21 @@ def draw_board(board):
 
 
 def show_tree(root: Node):
-	write_tree_to_file_bfs(root, 'tree_bfs.txt')
-	thread = threading.Thread(target=tree_visualize, kwargs={'root': root})
-	thread.start()
-	thread.join()
+    def write_tree_task(q):
+        write_tree_to_file_bfs(root, 'tree_bfs.txt')
+        q.put("done")
 
+    q = Queue()
+    thread = threading.Thread(target=write_tree_task, args=(q,))
+    thread.start()
+
+    # Wait for the thread to finish
+    while True:
+        result = q.get()
+        if result == "done":
+            break
+
+    tree_visualize(root)  # GUI operations remain in the main thread
 
 def draw_tree_button():
 	pygame.draw.rect(screen, ORANGE, (0, HEIGHT - SHOW_TREE_BUTTON_HEIGHT, WIDTH, SHOW_TREE_BUTTON_HEIGHT))

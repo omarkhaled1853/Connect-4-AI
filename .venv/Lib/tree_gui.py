@@ -3,6 +3,7 @@ import threading
 from utils.node import Node
 import time
 
+
 class TreeVisualizer(tk.Tk):
     def __init__(self, root):
         super().__init__()
@@ -44,9 +45,9 @@ class TreeVisualizer(tk.Tk):
                                         y + self.level_gap - self.node_radius,
                                         arrow=tk.LAST)
 
-                self.after(0, self.draw_treet, child, start, start + dis, y + self.level_gap, (turn + 1) % 2)
-                start += dis
+                self.draw_treet(child, start, start + dis, y + self.level_gap, (turn + 1) % 2)
 
+                start += dis
 
 
 def tree_visualize(root: Node):

@@ -159,7 +159,8 @@ class Minimax_alpha_beta(Search):
 
     def solve(self, board: list[list[chr]], human_score: int, agent_score: int) -> dict:
         node = Node(board)
-        best_position, _ = self.minimax(node, self._depth, human_score, agent_score)
+        best_position, value = self.minimax(node, self._depth, human_score, agent_score)
+        node.set_value(value)
         return {
             'best_position': best_position,
             'node': node
