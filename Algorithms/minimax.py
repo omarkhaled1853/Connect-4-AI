@@ -1,5 +1,6 @@
 import math
 import random
+import copy
 from Algorithms.search import Search
 from utils.node import Node
 from utils.heuristic import heuristic_score
@@ -110,7 +111,7 @@ class Minimax(Search):
             value = -math.inf
             best_position = random.choice(valid_positions)
             for position in valid_positions:
-                board_copy = board.copy()
+                board_copy = copy.deepcopy(board)
                 self.__update_board(board_copy, position)
                 
                 new_node = Node(board_copy)
@@ -126,7 +127,7 @@ class Minimax(Search):
             value = math.inf
             best_position = random.choice(valid_positions)
             for position in valid_positions:
-                board_copy = board.copy()
+                board_copy = copy.deepcopy(board)
                 self.__update_board(board_copy, position)
                 
                 new_node = Node(board_copy)

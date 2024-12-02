@@ -16,7 +16,7 @@ if __name__ == '__main__':
     human_score = 0
     agent_score = 0
 
-    search = Minimax(AGENT_PIECE, HUMAN_PIECE)
+    search = Minimax(AGENT_PIECE, HUMAN_PIECE, 6)
     search.set_agent_score(0)
     search.set_human_score(0)
     res = search.solve(board, human_score, agent_score)
