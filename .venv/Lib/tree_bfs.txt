@@ -1,57 +1,38 @@
-Node 1: 196, Children: 2, 3, 4, 5, 6, 7, 8
+Node 1: 79, Children: 2, 3, 4, 5, 6, 7, 8
 
-Node 2: 186, Children: 9, 10, 11, 12, 13, 14, 15
-Node 3: 186, Children: 16, 17, 18, 19, 20, 21, 22
-Node 4: 186, Children: 23, 24, 25, 26, 27, 28
-Node 5: 189, Children: 29, 30, 31, 32, 33, 34
-Node 6: 196, Children: 35, 36, 37, 38, 39, 40, 41
-Node 7: 196, Children: 42, 43, 44, 45, 46, 47, 48
-Node 8: 196, Children: 49, 50, 51, 52, 53, 54, 55
+Node 2: 39, Children: 9, 10, 11, 12, 13, 14, 15
+Node 3: 39, Children: 16, 17, 18, 19
+Node 4: 66, Children: 20, 21, 22, 23, 24, 25, 26
+Node 5: 66, Children: 27
+Node 6: 66, Children: 28
+Node 7: 66, Children: 29
+Node 8: 79, Children: 30, 31, 32, 33, 34, 35, 36
 
-Node 9: 276, Children: None
-Node 10: 186, Children: None
-Node 11: 186, Children: None
-Node 12: 186, Children: None
-Node 13: 186, Children: None
-Node 14: 186, Children: None
-Node 15: 186, Children: None
-Node 16: 186, Children: None
-Node 17: 186, Children: None
-Node 18: 186, Children: None
-Node 19: 186, Children: None
-Node 20: 186, Children: None
-Node 21: 186, Children: None
-Node 22: 186, Children: None
-Node 23: 186, Children: None
-Node 24: 186, Children: None
-Node 25: 186, Children: None
-Node 26: 186, Children: None
-Node 27: 186, Children: None
-Node 28: 176, Children: None
-Node 29: 199, Children: None
-Node 30: 199, Children: None
-Node 31: 199, Children: None
-Node 32: 199, Children: None
-Node 33: 199, Children: None
-Node 34: 189, Children: None
-Node 35: 206, Children: None
-Node 36: 206, Children: None
-Node 37: 196, Children: None
-Node 38: 196, Children: None
-Node 39: 196, Children: None
-Node 40: 196, Children: None
-Node 41: 196, Children: None
-Node 42: 206, Children: None
-Node 43: 206, Children: None
-Node 44: 196, Children: None
-Node 45: 196, Children: None
-Node 46: 196, Children: None
-Node 47: 196, Children: None
-Node 48: 196, Children: None
-Node 49: 186, Children: None
-Node 50: 186, Children: None
-Node 51: 176, Children: None
-Node 52: 176, Children: None
-Node 53: 176, Children: None
-Node 54: 176, Children: None
-Node 55: 176, Children: None
+Node 9: 56, Children: None
+Node 10: 46, Children: None
+Node 11: 46, Children: None
+Node 12: 39, Children: None
+Node 13: 39, Children: None
+Node 14: 39, Children: None
+Node 15: 39, Children: None
+Node 16: 46, Children: None
+Node 17: 46, Children: None
+Node 18: 46, Children: None
+Node 19: 39, Children: None
+Node 20: 76, Children: None
+Node 21: 66, Children: None
+Node 22: 66, Children: None
+Node 23: 66, Children: None
+Node 24: 66, Children: None
+Node 25: 66, Children: None
+Node 26: 66, Children: None
+Node 27: 39, Children: None
+Node 28: 56, Children: None
+Node 29: 56, Children: None
+Node 30: 86, Children: None
+Node 31: 86, Children: None
+Node 32: 86, Children: None
+Node 33: 79, Children: None
+Node 34: 79, Children: None
+Node 35: 79, Children: None
+Node 36: 79, Children: None
