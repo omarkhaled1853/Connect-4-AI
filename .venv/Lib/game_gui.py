@@ -145,18 +145,18 @@ def generate_number():
     return random.randint(0, 6)
 
 def create_board():
-    board = np.zeros((ROW_COUNT, COLUMN_COUNT))
+    board = np.full((ROW_COUNT, COLUMN_COUNT), '0')
     return board
 
 def drop_piece(board, row, col, piece):
     board[row][col] = piece
 
 def is_valid_location(board, col):
-    return board[0][col] == 0
+    return board[0][col] == '0'
 
 def get_next_open_row(board, col):
     for row in reversed(range(ROW_COUNT)):
-        if board[row][col] == 0:
+        if board[row][col] == '0':
             return row
 
 
@@ -164,9 +164,9 @@ def draw_board(board):
     for c in range(COLUMN_COUNT):
         for r in range(ROW_COUNT):
             pygame.draw.rect(screen, BLUE, (c*SQUARESIZE, r*SQUARESIZE + SQUARESIZE, SQUARESIZE, SQUARESIZE))
-            if board[r][c] == 0:
+            if board[r][c] == '0':
                 pygame.draw.circle(screen, BLACK, (int(c*SQUARESIZE+SQUARESIZE/2),int(r*SQUARESIZE+SQUARESIZE+SQUARESIZE/2)), RADIUS)
-            elif board[r][c] == 1:
+            elif board[r][c] == '1':
                 pygame.draw.circle(screen, RED, (int(c*SQUARESIZE+SQUARESIZE/2),int(r*SQUARESIZE+SQUARESIZE+SQUARESIZE/2)), RADIUS)
             else:   # player 2
                 pygame.draw.circle(screen, YELLOW, (int(c*SQUARESIZE+SQUARESIZE/2),int(r*SQUARESIZE+SQUARESIZE+SQUARESIZE/2)), RADIUS)
@@ -210,8 +210,8 @@ def start_game():
 			if not is_valid_location(board, computer_col):
 				continue
 			row = get_next_open_row(board, computer_col)
-			drop_piece(board, row, computer_col, 2)
-			computer_score += gain_from_one_piece(board, row, computer_col, 2)
+			drop_piece(board, row, computer_col, '2')
+			computer_score += gain_from_one_piece(board, row, computer_col, '2')
 			draw_board(board)
 			turn = (turn + 1) % 2
 			step_num += 1
@@ -242,8 +242,8 @@ def start_game():
 
 				if turn == 0 and is_valid_location(board, col):
 					row = get_next_open_row(board, col)
-					drop_piece(board, row, col, 1)
-					player_score += gain_from_one_piece(board, row, col, 1)
+					drop_piece(board, row, col, '1')
+					player_score += gain_from_one_piece(board, row, col, '1')
 					draw_board(board)
 					turn = (turn + 1) % 2
 					step_num += 1
