@@ -13,7 +13,8 @@ def evaluate_window(window: list[list[chr]], piece: chr) -> int:
         
     return score
 
-def heuristic_score(board: list[list[chr]], rows: int, cols: int, agent_piece: chr, human_piece: chr, real_agent_score: int, real_human_score: int):
+def heuristic_score(board: list[list[chr]], rows: int, cols: int, agent_piece: chr, human_piece: chr,
+                     real_agent_score: int, real_human_score: int):
     """
     Calculates the overall heuristic score for the current board state.
     """

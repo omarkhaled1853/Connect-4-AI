@@ -145,5 +145,6 @@ class Minimax(Search):
         node = Node(board)
         best_position, _ = self.minimax(node, self._depth, human_score, agent_score)
         return {
-            'best_position': best_position
+            'best_position': best_position,
+            'node': node
         }
