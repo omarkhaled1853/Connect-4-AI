@@ -4,7 +4,7 @@ class Node:
     def __init__(self, board: list[list[chr]]) -> None:
         self.__board = board
         self.__children = []
-        self.__heurstic_value = 0
+        self.__value = 0
         self.__alpha = -math.inf
         self.__beta = math.inf
     
@@ -25,11 +25,11 @@ class Node:
     def add_child(self, node: 'Node'):
         self.__children.append(node)
     
-    def get_heurstic_value(self) -> int:
-        return self.__heurstic_value
+    def get_value(self) -> int:
+        return self.__value
 
-    def set_heuristic_value(self, heurstic_value: float):
-        self.__heurstic_value = heurstic_value
+    def set_value(self, value: float):
+        self.__value = value
     
     def get_alpha(self) -> int:
         return self.__alpha

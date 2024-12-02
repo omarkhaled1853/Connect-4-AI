@@ -94,17 +94,17 @@ class Minimax(Search):
             if is_terminal:
                 agent_wins, human_wins = self.__winning_move(board)
                 if agent_wins > human_wins:
-                    node.set_heuristic_value(math.inf)
+                    node.set_value(math.inf)
                     return (None, math.inf)
                 elif agent_wins < human_wins:
-                    node.set_heuristic_value(-math.inf)
+                    node.set_value(-math.inf)
                     return (None, -math.inf)
                 else:
-                    node.set_heuristic_value(0)
+                    node.set_value(0)
                     return (None, 0)
             else:
                 heurstic_value = heuristic_score(board, self._rows, self._cols, self._agent_piece, self._human_piece, self._agent_score, self._human_score)
-                node.set_heuristic_value(heurstic_value)
+                node.set_value(heurstic_value)
                 return (None, heurstic_value)
         
         if maximizing_player:
@@ -119,7 +119,7 @@ class Minimax(Search):
                 if (temp_value > value):
                     value = temp_value
                     best_position = position
-                new_node.set_heuristic_value(value)
+                new_node.set_value(value)
                 node.add_child(new_node)
             
             return (best_position, value)
@@ -135,7 +135,7 @@ class Minimax(Search):
                 if (temp_value < value):
                     value = temp_value
                     best_position = position
-                new_node.set_heuristic_value(value)
+                new_node.set_value(value)
                 node.add_child(new_node)
             
             return (best_position, value)

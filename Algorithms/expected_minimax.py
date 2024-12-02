@@ -153,7 +153,7 @@ class Expected_minimax(Search):
 
             res += right * value
         
-        chance_node.set_heuristic_value(res)
+        chance_node.set_value(res)
         
         return chance_node
 
@@ -173,18 +173,18 @@ class Expected_minimax(Search):
             if is_terminal:
                 agent_wins, human_wins = self.__winning_move(board)
                 if agent_wins > human_wins:
-                    node.set_heuristic_value(math.inf)
+                    node.set_value(math.inf)
                     return (None, math.inf)
                 elif agent_wins < human_wins:
-                    node.set_heuristic_value(-math.inf)
+                    node.set_value(-math.inf)
                     return (None, -math.inf)
                 else:
-                    node.set_heuristic_value(0)
+                    node.set_value(0)
                     return (None, 0)
             else:
                 heurstic_value = heuristic_score(board, self._rows, self._cols, self._agent_piece, self._human_piece,
                                                   self._agent_score, self._human_score)
-                node.set_heuristic_value(heurstic_value)
+                node.set_value(heurstic_value)
                 return (None, heurstic_value)
 
         elif maximizing_player:
@@ -194,11 +194,11 @@ class Expected_minimax(Search):
                 chance_node = self.__chance_evaluation(board, depth - 1, human_score, agent_score, col, maximizing_player)
                 # add chance node to the max node
                 node.add_child(chance_node)
-                chance_value = chance_node.get_heurstic_value()
+                chance_value = chance_node.get_value()
                 if chance_value > value:
                     value = chance_value
                     best_col = col
-            node.set_heuristic_value(value)
+            node.set_value(value)
             return best_col, value
         else: #minimizing player
             value = math.inf
@@ -207,11 +207,11 @@ class Expected_minimax(Search):
                 chance_node = self.__chance_evaluation(board, depth - 1, human_score, agent_score, col, maximizing_player)
                 # add chance node to the min node
                 node.add_child(chance_node)
-                chance_value = chance_node.get_heurstic_value()
+                chance_value = chance_node.get_value()
                 if chance_value < value:
                     value = chance_value
                     best_col = col
-            node.set_heuristic_value(value)
+            node.set_value(value)
             return best_col, value
 
 

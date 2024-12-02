@@ -15,9 +15,3 @@ class Search(ABC):
     def solve(self, board: list[list[chr]], human_score: int, agent_score: int) -> dict:
         """Abstract method to be implemented by subclasses"""
         pass
-
-    def set_agent_score(self, agent_score):
-        self._agent_score = agent_score
-    
-    def set_human_score(self, human_score):
-        self._human_score = human_score
