@@ -1,7 +1,9 @@
-def evaluate_window(window: list[list[chr]], piece: chr) -> int:
+def evaluate_window(window: list[chr], piece: chr) -> int:
     """
     Evaluates a single window of 4 and calculates counts for twos, threes, and fours.
     """
+    window = list(window)
+
     score = 0
     
     if window.count(piece) == 4:

@@ -1,51 +1,400 @@
-Node: 0, Childs: 1, 2, 3, 4, 5, 6, 7
-Node: 1, Childs: 8, 9, 10, 11
-Node: 2, Childs: 10, 11, 12, 13
-Node: 3, Childs: 12, 13, 14
-Node: 4, Childs: 14, 15, 15, 17
-Node: 5, Childs: 16, 17, 18, 19, 16
-Node: 6, Childs: 20, 20, 20, 20, 20, 20, 20
-Node: 7, Childs: 20, 20, 20, 20, 20
-Node: 8, Childs: 20, 20, 20, 20
-Node: 9, Childs: 
-Node: 10, Childs: 
-Node: 11, Childs: 
-Node: 10, Childs: 
-Node: 11, Childs: 
-Node: 12, Childs: 
-Node: 13, Childs: 
-Node: 12, Childs: 
-Node: 13, Childs: 
-Node: 14, Childs: 
-Node: 14, Childs: 
-Node: 15, Childs: 18, 19
-Node: 15, Childs: 18, 19
-Node: 17, Childs: 
-Node: 16, Childs: 
-Node: 17, Childs: 
-Node: 18, Childs: 20
-Node: 19, Childs: 
-Node: 16, Childs: 
-Node: 20, Childs: 
-Node: 20, Childs: 
-Node: 20, Childs: 
-Node: 20, Childs: 
-Node: 20, Childs: 
-Node: 20, Childs: 
-Node: 20, Childs: 
-Node: 20, Childs: 
-Node: 20, Childs: 
-Node: 20, Childs: 
-Node: 20, Childs: 
-Node: 20, Childs: 
-Node: 20, Childs: 
-Node: 20, Childs: 
-Node: 20, Childs: 
-Node: 20, Childs: 
-Node: 18, Childs: 20
-Node: 19, Childs: 
-Node: 18, Childs: 20
-Node: 19, Childs: 
-Node: 20, Childs: 
-Node: 20, Childs: 
-Node: 20, Childs: 
+Node: 0, Children: 10, 10, 13, 23, 23, 23, 23
+Node: 10, Children: 60, 20, 13, 13, 13, 10, 10
+Node: 10, Children: 20, 20, 20, 20, 13, 10, 10
+Node: 13, Children: 13, 13, 13, 13, 13, 13, 13
+Node: 23, Children: 23, 23, 23, 23, 23, 23, 23
+Node: 23, Children: 13, 13, 13, 13, 13, 13, 13
+Node: 23, Children: 10, 10, 10, 10, 10, 10, 10
+Node: 23, Children: 10, 10, 10, 10, 10, 10, 10
+Node: 60, Children: 60, 60, 60, 60, 60, 60, 60
+Node: 20, Children: 10, 20, 20, 20, 20, 20, 20
+Node: 13, Children: 10, 10, 10, 13, 13, 13, 13
+Node: 13, Children: 23, 23, 23, 23, 23, 23, 23
+Node: 13, Children: 10, 10, 10, 13, 13, 13, 13
+Node: 10, Children: 10, 10, 10, 10, 10, 10, 10
+Node: 10, Children: 10, 10, 10, 10, 10, 10, 10
+Node: 20, Children: 10, 20, 20, 20, 20, 20, 20
+Node: 20, Children: 20, 60, 60, 60, 60, 60, 60
+Node: 20, Children: 0, 10, 20, 20, 20, 20, 20
+Node: 20, Children: 3, 33, 33, 33, 33, 33, 33
+Node: 13, Children: 0, 10, 10, 13, 13, 13, 13
+Node: 10, Children: 0, 10, 10, 10, 10, 10, 10
+Node: 10, Children: 0, 10, 10, 10, 10, 10, 10
+Node: 13, Children: 10, 10, 10, 13, 13, 13, 13
+Node: 13, Children: 0, 10, 20, 20, 20, 20, 20
+Node: 13, Children: 10, 20, 60, 60, 60, 60, 60
+Node: 13, Children: 13, 13, 53, 53, 53, 53, 53
+Node: 13, Children: 0, 0, 10, 23, 23, 23, 23
+Node: 13, Children: 0, 0, 10, 13, 13, 13, 13
+Node: 13, Children: 0, 0, 10, 13, 13, 13, 13
+Node: 23, Children: 23, 23, 23, 23, 23, 23, 23
+Node: 23, Children: 3, 33, 33, 33, 33, 33, 33
+Node: 23, Children: 13, 13, 53, 53, 53, 53, 53
+Node: 23, Children: 16, 26, 26, 69, 69, 69, 69
+Node: 23, Children: 13, 13, 23, 26, 53, 53, 53
+Node: 23, Children: 3, 3, 13, 26, 26, 33, 33
+Node: 23, Children: 3, 3, 13, 16, 16, 16, 23
+Node: 13, Children: 10, 10, 10, 13, 13, 13, 13
+Node: 13, Children: 0, 10, 10, 13, 13, 13, 13
+Node: 13, Children: 0, 0, 10, 23, 23, 23, 23
+Node: 13, Children: 13, 13, 23, 26, 53, 53, 53
+Node: 13, Children: 10, 10, 10, 53, 60, 60, 60
+Node: 13, Children: 0, 0, 0, 13, 20, 20, 20
+Node: 13, Children: 0, 0, 0, 13, 13, 13, 13
+Node: 10, Children: 10, 10, 10, 10, 10, 10, 10
+Node: 10, Children: 0, 10, 10, 10, 10, 10, 10
+Node: 10, Children: 0, 0, 10, 13, 13, 13, 13
+Node: 10, Children: 3, 3, 13, 26, 26, 33, 33
+Node: 10, Children: 0, 0, 0, 13, 20, 20, 20
+Node: 10, Children: 10, 10, 10, 33, 33, 60, 60
+Node: 10, Children: 0, 0, 0, 3, 3, 20, 20
+Node: 10, Children: 10, 10, 10, 10, 10, 10, 10
+Node: 10, Children: 0, 10, 10, 10, 10, 10, 10
+Node: 10, Children: 0, 0, 10, 13, 13, 13, 13
+Node: 10, Children: 3, 3, 13, 16, 16, 16, 23
+Node: 10, Children: 0, 0, 0, 13, 13, 13, 13
+Node: 10, Children: 0, 0, 0, 3, 3, 20, 20
+Node: 10, Children: 10, 10, 10, 23, 23, 23, 60
+Node: 60, Children: 
+Node: 60, Children: 
+Node: 60, Children: 
+Node: 60, Children: 
+Node: 60, Children: 
+Node: 60, Children: 
+Node: 60, Children: 
+Node: 10, Children: 
+Node: 20, Children: 
+Node: 20, Children: 
+Node: 20, Children: 
+Node: 20, Children: 
+Node: 20, Children: 
+Node: 20, Children: 
+Node: 10, Children: 
+Node: 10, Children: 
+Node: 10, Children: 
+Node: 13, Children: 
+Node: 13, Children: 
+Node: 13, Children: 
+Node: 13, Children: 
+Node: 23, Children: 
+Node: 23, Children: 
+Node: 23, Children: 
+Node: 23, Children: 
+Node: 23, Children: 
+Node: 23, Children: 
+Node: 23, Children: 
+Node: 10, Children: 
+Node: 10, Children: 
+Node: 10, Children: 
+Node: 13, Children: 
+Node: 13, Children: 
+Node: 13, Children: 
+Node: 13, Children: 
+Node: 10, Children: 
+Node: 10, Children: 
+Node: 10, Children: 
+Node: 10, Children: 
+Node: 10, Children: 
+Node: 10, Children: 
+Node: 10, Children: 
+Node: 10, Children: 
+Node: 10, Children: 
+Node: 10, Children: 
+Node: 10, Children: 
+Node: 10, Children: 
+Node: 10, Children: 
+Node: 10, Children: 
+Node: 10, Children: 
+Node: 20, Children: 
+Node: 20, Children: 
+Node: 20, Children: 
+Node: 20, Children: 
+Node: 20, Children: 
+Node: 20, Children: 
+Node: 20, Children: 
+Node: 60, Children: 
+Node: 60, Children: 
+Node: 60, Children: 
+Node: 60, Children: 
+Node: 60, Children: 
+Node: 60, Children: 
+Node: 0, Children: 
+Node: 10, Children: 
+Node: 20, Children: 
+Node: 20, Children: 
+Node: 20, Children: 
+Node: 20, Children: 
+Node: 20, Children: 
+Node: 3, Children: 
+Node: 33, Children: 
+Node: 33, Children: 
+Node: 33, Children: 
+Node: 33, Children: 
+Node: 33, Children: 
+Node: 33, Children: 
+Node: 0, Children: 
+Node: 10, Children: 
+Node: 10, Children: 
+Node: 13, Children: 
+Node: 13, Children: 
+Node: 13, Children: 
+Node: 13, Children: 
+Node: 0, Children: 
+Node: 10, Children: 
+Node: 10, Children: 
+Node: 10, Children: 
+Node: 10, Children: 
+Node: 10, Children: 
+Node: 10, Children: 
+Node: 0, Children: 
+Node: 10, Children: 
+Node: 10, Children: 
+Node: 10, Children: 
+Node: 10, Children: 
+Node: 10, Children: 
+Node: 10, Children: 
+Node: 10, Children: 
+Node: 10, Children: 
+Node: 10, Children: 
+Node: 13, Children: 
+Node: 13, Children: 
+Node: 13, Children: 
+Node: 13, Children: 
+Node: 0, Children: 
+Node: 10, Children: 
+Node: 20, Children: 
+Node: 20, Children: 
+Node: 20, Children: 
+Node: 20, Children: 
+Node: 20, Children: 
+Node: 10, Children: 
+Node: 20, Children: 
+Node: 60, Children: 
+Node: 60, Children: 
+Node: 60, Children: 
+Node: 60, Children: 
+Node: 60, Children: 
+Node: 13, Children: 
+Node: 13, Children: 
+Node: 53, Children: 
+Node: 53, Children: 
+Node: 53, Children: 
+Node: 53, Children: 
+Node: 53, Children: 
+Node: 0, Children: 
+Node: 0, Children: 
+Node: 10, Children: 
+Node: 23, Children: 
+Node: 23, Children: 
+Node: 23, Children: 
+Node: 23, Children: 
+Node: 0, Children: 
+Node: 0, Children: 
+Node: 10, Children: 
+Node: 13, Children: 
+Node: 13, Children: 
+Node: 13, Children: 
+Node: 13, Children: 
+Node: 0, Children: 
+Node: 0, Children: 
+Node: 10, Children: 
+Node: 13, Children: 
+Node: 13, Children: 
+Node: 13, Children: 
+Node: 13, Children: 
+Node: 23, Children: 
+Node: 23, Children: 
+Node: 23, Children: 
+Node: 23, Children: 
+Node: 23, Children: 
+Node: 23, Children: 
+Node: 23, Children: 
+Node: 3, Children: 
+Node: 33, Children: 
+Node: 33, Children: 
+Node: 33, Children: 
+Node: 33, Children: 
+Node: 33, Children: 
+Node: 33, Children: 
+Node: 13, Children: 
+Node: 13, Children: 
+Node: 53, Children: 
+Node: 53, Children: 
+Node: 53, Children: 
+Node: 53, Children: 
+Node: 53, Children: 
+Node: 16, Children: 
+Node: 26, Children: 
+Node: 26, Children: 
+Node: 69, Children: 
+Node: 69, Children: 
+Node: 69, Children: 
+Node: 69, Children: 
+Node: 13, Children: 
+Node: 13, Children: 
+Node: 23, Children: 
+Node: 26, Children: 
+Node: 53, Children: 
+Node: 53, Children: 
+Node: 53, Children: 
+Node: 3, Children: 
+Node: 3, Children: 
+Node: 13, Children: 
+Node: 26, Children: 
+Node: 26, Children: 
+Node: 33, Children: 
+Node: 33, Children: 
+Node: 3, Children: 
+Node: 3, Children: 
+Node: 13, Children: 
+Node: 16, Children: 
+Node: 16, Children: 
+Node: 16, Children: 
+Node: 23, Children: 
+Node: 10, Children: 
+Node: 10, Children: 
+Node: 10, Children: 
+Node: 13, Children: 
+Node: 13, Children: 
+Node: 13, Children: 
+Node: 13, Children: 
+Node: 0, Children: 
+Node: 10, Children: 
+Node: 10, Children: 
+Node: 13, Children: 
+Node: 13, Children: 
+Node: 13, Children: 
+Node: 13, Children: 
+Node: 0, Children: 
+Node: 0, Children: 
+Node: 10, Children: 
+Node: 23, Children: 
+Node: 23, Children: 
+Node: 23, Children: 
+Node: 23, Children: 
+Node: 13, Children: 
+Node: 13, Children: 
+Node: 23, Children: 
+Node: 26, Children: 
+Node: 53, Children: 
+Node: 53, Children: 
+Node: 53, Children: 
+Node: 10, Children: 
+Node: 10, Children: 
+Node: 10, Children: 
+Node: 53, Children: 
+Node: 60, Children: 
+Node: 60, Children: 
+Node: 60, Children: 
+Node: 0, Children: 
+Node: 0, Children: 
+Node: 0, Children: 
+Node: 13, Children: 
+Node: 20, Children: 
+Node: 20, Children: 
+Node: 20, Children: 
+Node: 0, Children: 
+Node: 0, Children: 
+Node: 0, Children: 
+Node: 13, Children: 
+Node: 13, Children: 
+Node: 13, Children: 
+Node: 13, Children: 
+Node: 10, Children: 
+Node: 10, Children: 
+Node: 10, Children: 
+Node: 10, Children: 
+Node: 10, Children: 
+Node: 10, Children: 
+Node: 10, Children: 
+Node: 0, Children: 
+Node: 10, Children: 
+Node: 10, Children: 
+Node: 10, Children: 
+Node: 10, Children: 
+Node: 10, Children: 
+Node: 10, Children: 
+Node: 0, Children: 
+Node: 0, Children: 
+Node: 10, Children: 
+Node: 13, Children: 
+Node: 13, Children: 
+Node: 13, Children: 
+Node: 13, Children: 
+Node: 3, Children: 
+Node: 3, Children: 
+Node: 13, Children: 
+Node: 26, Children: 
+Node: 26, Children: 
+Node: 33, Children: 
+Node: 33, Children: 
+Node: 0, Children: 
+Node: 0, Children: 
+Node: 0, Children: 
+Node: 13, Children: 
+Node: 20, Children: 
+Node: 20, Children: 
+Node: 20, Children: 
+Node: 10, Children: 
+Node: 10, Children: 
+Node: 10, Children: 
+Node: 33, Children: 
+Node: 33, Children: 
+Node: 60, Children: 
+Node: 60, Children: 
+Node: 0, Children: 
+Node: 0, Children: 
+Node: 0, Children: 
+Node: 3, Children: 
+Node: 3, Children: 
+Node: 20, Children: 
+Node: 20, Children: 
+Node: 10, Children: 
+Node: 10, Children: 
+Node: 10, Children: 
+Node: 10, Children: 
+Node: 10, Children: 
+Node: 10, Children: 
+Node: 10, Children: 
+Node: 0, Children: 
+Node: 10, Children: 
+Node: 10, Children: 
+Node: 10, Children: 
+Node: 10, Children: 
+Node: 10, Children: 
+Node: 10, Children: 
+Node: 0, Children: 
+Node: 0, Children: 
+Node: 10, Children: 
+Node: 13, Children: 
+Node: 13, Children: 
+Node: 13, Children: 
+Node: 13, Children: 
+Node: 3, Children: 
+Node: 3, Children: 
+Node: 13, Children: 
+Node: 16, Children: 
+Node: 16, Children: 
+Node: 16, Children: 
+Node: 23, Children: 
+Node: 0, Children: 
+Node: 0, Children: 
+Node: 0, Children: 
+Node: 13, Children: 
+Node: 13, Children: 
+Node: 13, Children: 
+Node: 13, Children: 
+Node: 0, Children: 
+Node: 0, Children: 
+Node: 0, Children: 
+Node: 3, Children: 
+Node: 3, Children: 
+Node: 20, Children: 
+Node: 20, Children: 
+Node: 10, Children: 
+Node: 10, Children: 
+Node: 10, Children: 
+Node: 23, Children: 
+Node: 23, Children: 
+Node: 23, Children: 
+Node: 60, Children: 

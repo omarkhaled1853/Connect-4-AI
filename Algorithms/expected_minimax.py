@@ -41,7 +41,7 @@ class Expected_minimax(Search):
         for r in range(self._rows):
             row_array = board[r]
             for c in range(self._cols - 3):
-                window = row_array[c:c + 4]
+                window = list(row_array[c:c + 4])
                 if window.count(piece) == 4:
                     count += 1
 
@@ -49,21 +49,21 @@ class Expected_minimax(Search):
         for c in range(self._cols):
             col_array = [row[c] for row in board] 
             for r in range(self._rows - 3):
-                window = col_array[r:r + 4]
+                window = list(col_array[r:r + 4])
                 if window.count(piece) == 4:
                     count += 1
 
         # Diagonal check
         for r in range(self._rows - 3):
             for c in range(self._cols - 3):
-                window = [board[r + i][c + i] for i in range(4)]
+                window = list([board[r + i][c + i] for i in range(4)])
                 if window.count(piece) == 4:
                     count += 1
 
         # Reversed diagonal check
         for r in range(self._rows - 3):
             for c in range(self._cols - 3):
-                window = [board[r + 3 - i][c + i] for i in range(4)]
+                window = list([board[r + 3 - i][c + i] for i in range(4)])
                 if window.count(piece) == 4:
                     count += 1
 

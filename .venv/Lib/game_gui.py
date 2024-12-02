@@ -6,108 +6,110 @@ import random
 from tree_gui import *
 from turn_gain import *
 from tree_printing import *
+from utils.factory import Factory
+from Algorithms.search import Search
 
-root = Node(0)
-child1 = Node(1)
-child2 = Node(2)
-child3 = Node(3)
-child4 = Node(4)
-child5 = Node(5)
-child6 = Node(6)
-child7 = Node(7)
-child8 = Node(8)
-child9 = Node(9)
-
-child10 = Node(10)
-child11 = Node(11)
-child12 = Node(12)
-child13 = Node(13)
-child14 = Node(14)
-child15 = Node(15)
-child16 = Node(16)
-child17 = Node(17)
-child18 = Node(18)
-child19 = Node(19)
-child20 = Node(20)
-child21 = Node(20)
-child22 = Node(20)
-child23 = Node(20)
-child24 = Node(20)
-child25 = Node(20)
-child26 = Node(20)
-child27 = Node(20)
-child28 = Node(20)
-child29 = Node(20)
-child30 = Node(20)
-child31 = Node(20)
-child32 = Node(20)
-child33 = Node(20)
-child34 = Node(20)
-child35 = Node(20)
-
-root.add_child(child1)
-root.add_child(child2)
-root.add_child(child3)
-root.add_child(child4)
-root.add_child(child5)
-root.add_child(child6)
-root.add_child(child7)
-
-
-child1.add_child(child8)
-child1.add_child(child9)
-
-child2.add_child(child10)
-child2.add_child(child11)
-
-
-child3.add_child(child12)
-child3.add_child(child13)
-
-child4.add_child(child14)
-child4.add_child(child15)
-
-
-child5.add_child(child16)
-child5.add_child(child17)
-child5.add_child(child18)
-child5.add_child(child19)
-
-child6.add_child(child20)
-child6.add_child(child21)
-child6.add_child(child22)
-child6.add_child(child23)
-child6.add_child(child24)
-child6.add_child(child25)
-child6.add_child(child26)
-
-child7.add_child(child27)
-child7.add_child(child28)
-child7.add_child(child29)
-child7.add_child(child30)
-child7.add_child(child31)
-
-child8.add_child(child32)
-child8.add_child(child33)
-child8.add_child(child34)
-child8.add_child(child35)
-
-child1.add_child(child10)
-child1.add_child(child11)
-
-child2.add_child(child12)
-child2.add_child(child13)
-
-child3.add_child(child14)
-child4.add_child(child15)
-child4.add_child(child17)
-
-child5.add_child(child16)
-
-child15.add_child(child18)
-child15.add_child(child19)
-
-child18.add_child(child20)
+# root = Node(0)
+# child1 = Node(1)
+# child2 = Node(2)
+# child3 = Node(3)
+# child4 = Node(4)
+# child5 = Node(5)
+# child6 = Node(6)
+# child7 = Node(7)
+# child8 = Node(8)
+# child9 = Node(9)
+#
+# child10 = Node(10)
+# child11 = Node(11)
+# child12 = Node(12)
+# child13 = Node(13)
+# child14 = Node(14)
+# child15 = Node(15)
+# child16 = Node(16)
+# child17 = Node(17)
+# child18 = Node(18)
+# child19 = Node(19)
+# child20 = Node(20)
+# child21 = Node(20)
+# child22 = Node(20)
+# child23 = Node(20)
+# child24 = Node(20)
+# child25 = Node(20)
+# child26 = Node(20)
+# child27 = Node(20)
+# child28 = Node(20)
+# child29 = Node(20)
+# child30 = Node(20)
+# child31 = Node(20)
+# child32 = Node(20)
+# child33 = Node(20)
+# child34 = Node(20)
+# child35 = Node(20)
+#
+# root.add_child(child1)
+# root.add_child(child2)
+# root.add_child(child3)
+# root.add_child(child4)
+# root.add_child(child5)
+# root.add_child(child6)
+# root.add_child(child7)
+#
+#
+# child1.add_child(child8)
+# child1.add_child(child9)
+#
+# child2.add_child(child10)
+# child2.add_child(child11)
+#
+#
+# child3.add_child(child12)
+# child3.add_child(child13)
+#
+# child4.add_child(child14)
+# child4.add_child(child15)
+#
+#
+# child5.add_child(child16)
+# child5.add_child(child17)
+# child5.add_child(child18)
+# child5.add_child(child19)
+#
+# child6.add_child(child20)
+# child6.add_child(child21)
+# child6.add_child(child22)
+# child6.add_child(child23)
+# child6.add_child(child24)
+# child6.add_child(child25)
+# child6.add_child(child26)
+#
+# child7.add_child(child27)
+# child7.add_child(child28)
+# child7.add_child(child29)
+# child7.add_child(child30)
+# child7.add_child(child31)
+#
+# child8.add_child(child32)
+# child8.add_child(child33)
+# child8.add_child(child34)
+# child8.add_child(child35)
+#
+# child1.add_child(child10)
+# child1.add_child(child11)
+#
+# child2.add_child(child12)
+# child2.add_child(child13)
+#
+# child3.add_child(child14)
+# child4.add_child(child15)
+# child4.add_child(child17)
+#
+# child5.add_child(child16)
+#
+# child15.add_child(child18)
+# child15.add_child(child19)
+#
+# child18.add_child(child20)
 
 
 #Board size
@@ -192,7 +194,7 @@ def draw_tree_button():
 	screen.blit(label, (250, HEIGHT - SHOW_TREE_BUTTON_HEIGHT))
 
 
-def start_game():
+def start_game(search: Search):
 	step_num = 0
 	board = create_board()
 	pygame.draw.rect(screen, BLACK, (0, 0, WIDTH, SQUARESIZE))
@@ -200,28 +202,30 @@ def start_game():
 	draw_board(board)
 	pygame.display.update()
 
-
 	turn = 0 # player turn
 	if START_FIRST == 'computer':
 		turn = 1
 
 	player_score = 0
 	computer_score = 0
+	root = None
 	game_over = False
 
 	while not game_over:
 		if turn == 1: # computer turn
-			computer_col = generate_number()
-			if not is_valid_location(board, computer_col):
-				continue
-			row = get_next_open_row(board, computer_col)
+			play_data = search.solve(board, player_score, computer_score)
+			position = play_data['best_position']
+			root = play_data['node']
+
+			row = position[0]
+			computer_col = position[1]
 			drop_piece(board, row, computer_col, COMPUTER_PIECE)
 			computer_score += gain_from_one_piece(board, row, computer_col, COMPUTER_PIECE)
 			draw_board(board)
 			turn = (turn + 1) % 2
 			step_num += 1
-			print(f"player: {PLAYER_PIECE}")
-			print(f"computer: {COMPUTER_PIECE}")
+			print(f"player: {player_score}")
+			print(f"computer: {computer_score}")
 
 		for event in pygame.event.get():
 			if event.type == pygame.QUIT:
@@ -287,7 +291,7 @@ def main_menu():
 	start_first = [("Player", "player"), ("Computer", "computer")]
 	player_color = [("Red", "1"), ("Yellow", "2")]
 	level = [(str(i), str(i)) for i in range(1, 43)]
-	search_method = [("Alpha_Beta", "Alpha_Beta"), ("Minmax", "Minmax"), ("Expected minmax", "Expeced minmax")]
+	search_method = [("Alpha_Beta", "Minimax_alpha_beta"), ("Minmax", "Minimax"), ("Expected minmax", "Expected_minimax")]
 
 	# Creating the settings menu
 	settings = pm.Menu(title="CONNECT4 GAME",
@@ -318,7 +322,8 @@ def main_menu():
 		print(COMPUTER_PIECE)
 		print(LEVEL)
 		print(SEARCH_METHOD)
-		start_game()
+		search = Factory.get_technique(SEARCH_METHOD, COMPUTER_PIECE, PLAYER_PIECE, LEVEL)
+		start_game(search)
 
 
 	settings.add.text_input(title="User Name : ", textinput_id="username")

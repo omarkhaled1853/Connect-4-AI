@@ -11,6 +11,7 @@ def print_children(node: Node):
 
 
 def main():
+
     AGENT_PIECE = '1'
     HUMAN_PIECE = '2'
     
