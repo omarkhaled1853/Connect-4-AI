@@ -8,6 +8,7 @@ from ConnectFourSolver.utils.heuristic import heuristic_score
 class Expected_minimax(Search):
     def __init__(self, agent_piece: chr, human_piece: chr, depth: int = 42, rows: int = 6, cols: int = 7) -> None:
         super().__init__(agent_piece, human_piece, depth, rows, cols)
+        self.dp_cache = {}
     
     def __is_terminal_node(self, board: list[list[chr]]) -> bool:
         """ Terminal node if board is full """
@@ -157,14 +158,24 @@ class Expected_minimax(Search):
         
         return chance_node
 
-    def minimax(self, node: Node, depth: int, human_score: int, agent_score: int, 
+    def __serialize_board(self, board: list[list[chr]]) -> tuple:
+        """ Serialize the board to a tuple so it can be used as a cache key """
+        return tuple(tuple(row) for row in board)
+
+    def minimax(self, node: Node, depth: int, human_score: int, agent_score: int,
                 maximizing_player: bool = True) -> tuple:
-        """ 
-        Get best position to play with its value
-        based on it is maximization node or minimization node
+        """
+        Get best position to play with its value, utilizing DP caching.
         """
         # get board
         board = node.get_board()
+
+        # Check if this board state has already been evaluated (cached)
+        board_key = self.__serialize_board(board)
+        if board_key in self.dp_cache:
+            # Return the cached result (best column, value)
+            return self.dp_cache[board_key]
+
         # get valid columns
         valid_cols = self.get_valid_columns(board)
         # check terminal node
@@ -174,24 +185,29 @@ class Expected_minimax(Search):
                 agent_wins, human_wins = self.__winning_move(board)
                 if agent_wins > human_wins:
                     node.set_value(math.inf)
-                    return (None, math.inf)
+                    result = (None, math.inf)
                 elif agent_wins < human_wins:
                     node.set_value(-math.inf)
-                    return (None, -math.inf)
+                    result = (None, -math.inf)
                 else:
                     node.set_value(0)
-                    return (None, 0)
+                    result = (None, 0)
             else:
-                heurstic_value = heuristic_score(board, self._rows, self._cols, self._agent_piece, self._human_piece,
+                heuristic_value = heuristic_score(board, self._rows, self._cols, self._agent_piece, self._human_piece,
                                                   self._agent_score, self._human_score)
-                node.set_value(heurstic_value)
-                return (None, heurstic_value)
+                node.set_value(heuristic_value)
+                result = (None, heuristic_value)
+
+            # Cache the result for the current board state
+            self.dp_cache[board_key] = result
+            return result
 
         elif maximizing_player:
             value = -math.inf
             best_col = random.choice(valid_cols)
             for col in valid_cols:
-                chance_node = self.__chance_evaluation(board, depth - 1, human_score, agent_score, col, maximizing_player)
+                chance_node = self.__chance_evaluation(board, depth - 1, human_score, agent_score, col,
+                                                       maximizing_player)
                 # add chance node to the max node
                 node.add_child(chance_node)
                 chance_value = chance_node.get_value()
@@ -199,12 +215,13 @@ class Expected_minimax(Search):
                     value = chance_value
                     best_col = col
             node.set_value(value)
-            return best_col, value
-        else: #minimizing player
+            result = best_col, value
+        else:  # minimizing player
             value = math.inf
             best_col = random.choice(valid_cols)
             for col in valid_cols:
-                chance_node = self.__chance_evaluation(board, depth - 1, human_score, agent_score, col, maximizing_player)
+                chance_node = self.__chance_evaluation(board, depth - 1, human_score, agent_score, col,
+                                                       maximizing_player)
                 # add chance node to the min node
                 node.add_child(chance_node)
                 chance_value = chance_node.get_value()
@@ -212,7 +229,11 @@ class Expected_minimax(Search):
                     value = chance_value
                     best_col = col
             node.set_value(value)
-            return best_col, value
+            result = best_col, value
+
+        # Cache the result for the current board state
+        self.dp_cache[board_key] = result
+        return result
 
 
     def solve(self, board: list[list[chr]], human_score: int, agent_score: int) -> dict:
