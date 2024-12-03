@@ -1,7 +1,7 @@
-from Algorithms.search import Search
-from Algorithms.minimax import Minimax
-from Algorithms.minimax_alpha_beta import Minimax_alpha_beta
-from Algorithms.expected_minimax import Expected_minimax
+from ConnectFourSolver.Algorithms.search import Search
+from ConnectFourSolver.Algorithms.minimax import Minimax
+from ConnectFourSolver.Algorithms.minimax_alpha_beta import Minimax_alpha_beta
+from ConnectFourSolver.Algorithms.expected_minimax import Expected_minimax
 
 # factory class to returun specific search alogrithm
 class Factory:

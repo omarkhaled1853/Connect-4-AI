@@ -1,9 +1,9 @@
 import math
 import random
 import copy
-from Algorithms.search import Search
-from utils.node import Node
-from utils.heuristic import heuristic_score
+from ConnectFourSolver.Algorithms.search import Search
+from ConnectFourSolver.utils.node import Node
+from ConnectFourSolver.utils.heuristic import heuristic_score
 
 class Minimax_alpha_beta(Search):
     def __init__(self, agent_piece: chr, human_piece: chr, depth: int = 42, rows: int = 6, cols: int = 7) -> None:

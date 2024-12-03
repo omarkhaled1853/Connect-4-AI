@@ -1,7 +1,4 @@
-from typing import List, Optional
-from collections import deque  # Use deque for efficient BFS queue
 from ConnectFourSolver.utils.node import Node
-
 from collections import deque
 
 
