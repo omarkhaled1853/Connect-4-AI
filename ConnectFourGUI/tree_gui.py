@@ -1,6 +1,6 @@
 import tkinter as tk
 import threading
-from utils.node import Node
+from ConnectFourSolver.utils.node import Node
 import time
 
 

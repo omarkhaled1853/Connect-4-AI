@@ -7,8 +7,8 @@ from queue import Queue
 from tree_gui import *
 from turn_gain import *
 from tree_printing import *
-from utils.factory import Factory
-from Algorithms.search import Search
+from ConnectFourSolver.utils.factory import Factory
+from ConnectFourSolver.Algorithms.search import Search
 
 #Board size
 ROW_COUNT = 6
