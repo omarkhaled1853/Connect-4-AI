@@ -45,4 +45,8 @@ This Connect Four game features an AI agent as the opponent, designed to challen
 - **Tkinter**: For UI components and interaction.
 - **File Handling**: To print and visualize the AI’s decision tree.
 
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details
+
 Enjoy playing Connect Four against an intelligent AI opponent!
